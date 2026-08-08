@@ -1,122 +1,73 @@
-import { Box, Container, Grid, Typography, Card, CardContent, Button, Stack } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
-import CampaignIcon from "@mui/icons-material/Campaign";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import SearchIcon from "@mui/icons-material/Search";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import ShareIcon from "@mui/icons-material/Share";
-import EmailIcon from "@mui/icons-material/Email";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import useReveal from "../hooks/useReveal";
-import { brand } from "../theme/theme";
+import { Box, Grid, Card, CardMedia, CardContent, Typography, Chip } from '@mui/material';
+import { motion } from 'framer-motion';
+import { brand } from '../theme';
 
+// Replace these with your own photography/screenshots — picsum.photos is used as a
+// realistic-looking placeholder so the layout ships with imagery instead of empty boxes.
 export const SERVICES = [
-  { icon: SearchIcon, title: "SEO & Search Growth", desc: "Technical audits, content clusters and link strategy that move you up page one — and keep you there." },
-  { icon: TrendingUpIcon, title: "Performance Ads", desc: "Google, Meta and programmatic campaigns built around ROAS, not vanity impressions." },
-  { icon: EditNoteIcon, title: "Content & Branding", desc: "Copy, design and video that gives your brand a voice people actually remember." },
-  { icon: ShareIcon, title: "Social Media Management", desc: "Calendars, creatives and community management that keep engagement compounding." },
-  { icon: EmailIcon, title: "Email & CRM Automation", desc: "Lifecycle flows that turn one-time buyers into repeat customers on autopilot." },
-  { icon: CampaignIcon, title: "Brand Strategy & Launches", desc: "Positioning, go-to-market plans and launch campaigns for new products and brands." },
+  { name: 'Social Media Marketing', desc: 'Content systems that build audience and engagement daily.', img: 'https://picsum.photos/seed/onfuge-social/600/440' },
+  { name: 'Performance Marketing', desc: 'Full-funnel campaigns engineered for measurable ROI.', img: 'https://picsum.photos/seed/onfuge-perf/600/440' },
+  { name: 'Meta Ads', desc: 'High-converting Facebook & Instagram ad funnels.', img: 'https://picsum.photos/seed/onfuge-meta/600/440' },
+  { name: 'Google Ads', desc: 'Search & performance campaigns that capture demand.', img: 'https://picsum.photos/seed/onfuge-google/600/440' },
+  { name: 'Branding', desc: 'Identity systems that make your brand instantly recognizable.', img: 'https://picsum.photos/seed/onfuge-brand/600/440' },
+  { name: 'Content Creation', desc: 'Scroll-stopping creative, produced consistently.', img: 'https://picsum.photos/seed/onfuge-content/600/440' },
+  { name: 'Website Development', desc: 'Fast, conversion-first websites built to scale.', img: 'https://picsum.photos/seed/onfuge-web/600/440' },
+  { name: 'SEO', desc: 'Organic growth engines built for long-term compounding.', img: 'https://picsum.photos/seed/onfuge-seo/600/440' },
 ];
 
-// Placeholder photography — swap for real ONFUGE work/office shots.
-const WORK_PHOTO = "https://picsum.photos/seed/onfuge-work/1200/1400";
-
-const ServiceCard = ({ icon: Icon, title, desc, index }) => {
-  const [ref, visible] = useReveal();
-  return (
-    <Grid item xs={12} sm={6} md={4} ref={ref}>
-      <Card
-        elevation={0}
-        sx={{
-          height: "100%", p: 3.5, bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2,
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(28px)",
-          transition: `opacity 0.7s ease ${index * 0.1}s, transform 0.7s ease ${index * 0.1}s, box-shadow 0.35s ease, border-color 0.35s ease`,
-          "&:hover": { borderColor: "rgba(222,103,29,0.5)", boxShadow: "0 0 32px rgba(222,103,29,0.15)" },
-        }}
-      >
-        <CardContent sx={{ p: 0 }}>
-          <Box sx={{ width: 54, height: 54, borderRadius: "12px", bgcolor: "rgba(222,103,29,0.12)", border: `1px solid ${brand.orange}`, display: "flex", alignItems: "center", justifyContent: "center", mb: 3 }}>
-            <Icon sx={{ color: brand.orange, fontSize: 26 }} />
-          </Box>
-          <Typography variant="h6" sx={{ color: brand.white, mb: 1 }}>{title}</Typography>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)" }}>{desc}</Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
-};
-
-/**
- * @param {number} limit - show only first N services (used on Home). Omit for full grid.
- * @param {boolean} showCta - show the "View all services" button under a limited grid.
- * @param {boolean} showPhoto - show the side photo panel (default true).
- */
-const Services = ({ limit, showCta = true, showPhoto = true }) => {
+export default function Services({ limit }) {
   const list = limit ? SERVICES.slice(0, limit) : SERVICES;
-  const [headRef, headVisible] = useReveal();
-  const [photoRef, photoVisible] = useReveal();
 
   return (
-    <Box component="section" sx={{ py: { xs: 9, md: 12 }, bgcolor: brand.black }}>
-      <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 6, md: 8 }} alignItems="flex-start">
-          <Grid item xs={12} md={showPhoto ? 8 : 12}>
-            <Stack
-              ref={headRef}
-              spacing={1.5}
-              sx={{ mb: 7, maxWidth: 640, opacity: headVisible ? 1 : 0, transform: headVisible ? "translateY(0)" : "translateY(24px)", transition: "opacity 0.8s ease, transform 0.8s ease" }}
-            >
-              <Typography variant="overline" sx={{ color: brand.orange }}>WHAT WE DO</Typography>
-              <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "2.6rem" }, color: brand.white, textTransform: "none" }}>
-                Marketing services built around one metric: results
-              </Typography>
-            </Stack>
+    <Box component="section" sx={{ py: { xs: 8, md: 14 } }} id="services">
+      <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 } }}>
+        <Box sx={{ maxWidth: 640, mb: 7 }}>
+          <Chip
+            label="OUR SERVICES"
+            size="small"
+            sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }}
+          />
+          <Typography variant="h2" sx={{ fontSize: { xs: 30, md: 44 }, mb: 2 }}>
+            A full growth system, built around your brand.
+          </Typography>
+          <Typography sx={{ color: brand.ink, fontSize: 16.5 }}>
+            Every channel your business needs to scale — working together, not in silos.
+          </Typography>
+        </Box>
 
-            <Grid container spacing={3}>
-              {list.map((service, i) => (
-                <ServiceCard key={service.title} index={i} {...service} />
-              ))}
-            </Grid>
-
-            {limit && showCta && (
-              <Stack alignItems="flex-start" sx={{ mt: 7 }}>
-                <Button component={RouterLink} to="/services" variant="outlined" color="secondary" endIcon={<ArrowForwardIcon />}>
-                  View All Services
-                </Button>
-              </Stack>
-            )}
-          </Grid>
-
-          {showPhoto && (
-            <Grid item xs={12} md={4} ref={photoRef} sx={{ display: { xs: "none", md: "block" } }}>
-              <Box
-                sx={{
-                  position: "relative", borderRadius: 2, overflow: "hidden", height: 560,
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  opacity: photoVisible ? 1 : 0,
-                  transform: photoVisible ? "translateY(0)" : "translateY(28px)",
-                  transition: "opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s",
-                }}
+        <Grid container spacing={3}>
+          {list.map((s, i) => (
+            <Grid item xs={12} sm={6} md={3} key={s.name}>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
               >
-                <Box component="img" src={WORK_PHOTO} alt="ONFUGE team planning a campaign" sx={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%)" }} />
-                <Box sx={{ position: "absolute", bottom: 24, left: 24, right: 24 }}>
-                  <Typography variant="subtitle1" sx={{ color: brand.white, fontWeight: 700 }}>
-                    Inside a live campaign sprint
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
-                    Strategy, creative and media — in one room.
-                  </Typography>
-                </Box>
-              </Box>
+                <Card
+                  className="cursor-hover"
+                  sx={{
+                    bgcolor: 'rgba(18,44,95,0.18)',
+                    border: `1px solid ${brand.line}`,
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    transition: 'transform 0.3s, border-color 0.3s',
+                    '&:hover': { transform: 'translateY(-6px)', borderColor: 'rgba(222,103,29,0.5)' },
+                  }}
+                >
+                  <CardMedia component="img" height="140" image={s.img} alt={s.name} loading="lazy" />
+                  <CardContent>
+                    <Typography variant="h3" sx={{ fontSize: 16, mb: 1 }}>
+                      {s.name}
+                    </Typography>
+                    <Typography sx={{ color: brand.ink, fontSize: 13.5, lineHeight: 1.6 }}>{s.desc}</Typography>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </Grid>
-          )}
+          ))}
         </Grid>
-      </Container>
+      </Box>
     </Box>
   );
-};
-
-export default Services;
+}

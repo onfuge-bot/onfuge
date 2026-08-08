@@ -1,125 +1,175 @@
-import { Box, Container, Grid, Typography, Link, Stack, IconButton, Divider, Button } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
-import PlaceIcon from "@mui/icons-material/Place";
-import LoginIcon from "@mui/icons-material/Login";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import XIcon from "@mui/icons-material/X";
-import Logo from "./Logo";
-import FilmGrain from "./FilmGrain";
-import { brand } from "../theme/theme";
+import {
+  Box,
+  Grid,
+  Typography,
+  Stack,
+  Button,
+} from "@mui/material";
 
-const PHONE = "+91 6367167465";
-const PHONE_HREF = "tel:+916367167465";
-const EMAIL = "onfuge@gmail.com";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import { brand } from "../theme";
 
-const FOOTER_LINKS = [
-  { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" },
-  { label: "Services", path: "/services" },
-  { label: "Blog", path: "/blog" },
-];
-
-const SOCIALS = [
-  { icon: InstagramIcon, href: "#" },
-  { icon: LinkedInIcon, href: "#" },
-  { icon: FacebookIcon, href: "#" },
-  { icon: XIcon, href: "#" },
-];
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <Box component="footer" sx={{ position: "relative", bgcolor: brand.black, color: brand.white, pt: 9, pb: 4, borderTop: `2px solid ${brand.orange}`, overflow: "hidden" }}>
-      <FilmGrain opacity={0.03} />
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        {/* Top bar: brand + customer login */}
-        <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} spacing={2} sx={{ mb: 6 }}>
-          <Logo size={36} tagline="scaling your online success" />
-          <Button
-            component={RouterLink}
-            to="/login"
-            variant="outlined"
-            color="secondary"
-            startIcon={<LoginIcon />}
-            sx={{ borderColor: "rgba(222,103,29,0.6)" }}
+    <Box
+      component="footer"
+      sx={{
+        pt: 10,
+        borderTop: `1px solid ${brand.line}`,
+      }}
+    >
+      <Box
+        sx={{
+          maxWidth: 1240,
+          mx: "auto",
+          px: 3,
+        }}
+      >
+        {/* CTA Banner */}
+
+        <Box
+          sx={{
+            mb: 8,
+            p: { xs: 4, md: 6 },
+            borderRadius: 5,
+            background:
+              "linear-gradient(135deg,#122C5F,#050816)",
+            border: `1px solid ${brand.line}`,
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: 32, md: 56 },
+              fontWeight: 800,
+              mb: 2,
+            }}
           >
-            Customer Login
+            Ready To Scale
+            <span style={{ color: brand.orange }}>
+              {" "}Beyond Orbit?
+            </span>
+          </Typography>
+
+          <Typography
+            sx={{
+              color: brand.ink,
+              mb: 4,
+            }}
+          >
+            Launch your next growth campaign with ONFUGE.
+          </Typography>
+
+          <Button
+            variant="contained"
+            endIcon={<RocketLaunchIcon />}
+          >
+            Let's Talk
           </Button>
-        </Stack>
+        </Box>
+
+        {/* Footer Links */}
 
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
-            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.55)", maxWidth: 320 }}>
-              ONFUGE is a digital marketing agency helping brands aim precisely and grow
-              consistently — through SEO, performance ads, content and automation.
+            <Typography
+              sx={{
+                fontSize: 32,
+                fontWeight: 800,
+                mb: 2,
+              }}
+            >
+              ONFUGE
+              <span style={{ color: brand.orange }}>
+                .
+              </span>
             </Typography>
-            <Stack direction="row" spacing={1} sx={{ mt: 3 }}>
-              {SOCIALS.map(({ icon: Icon, href }, i) => (
-                <IconButton
-                  key={i}
-                  component="a"
-                  href={href}
-                  size="small"
-                  sx={{ color: brand.white, border: "1px solid rgba(255,255,255,0.15)", "&:hover": { bgcolor: brand.orange, borderColor: brand.orange, boxShadow: "0 0 16px rgba(222,103,29,0.5)" } }}
-                >
-                  <Icon fontSize="small" />
-                </IconButton>
-              ))}
+
+            <Typography
+              sx={{
+                color: brand.ink,
+                lineHeight: 1.8,
+              }}
+            >
+              Scaling Your Online Success.
+              Premium growth systems for modern brands.
+            </Typography>
+          </Grid>
+
+          <Grid item xs={6} md={2}>
+            <Typography
+              sx={{
+                mb: 2,
+                fontWeight: 700,
+              }}
+            >
+              Company
+            </Typography>
+
+            <Stack spacing={1}>
+              <Typography>Home</Typography>
+              <Typography>About</Typography>
+              <Typography>Services</Typography>
+              <Typography>Blog</Typography>
             </Stack>
           </Grid>
 
           <Grid item xs={6} md={2}>
-            <Typography variant="subtitle1" sx={{ color: brand.orange, mb: 2 }}>Quick Links</Typography>
-            <Stack spacing={1.2}>
-              {FOOTER_LINKS.map((link) => (
-                <Link key={link.path} component={RouterLink} to={link.path} underline="none" sx={{ color: "rgba(255,255,255,0.7)", "&:hover": { color: brand.white } }}>
-                  {link.label}
-                </Link>
-              ))}
+            <Typography
+              sx={{
+                mb: 2,
+                fontWeight: 700,
+              }}
+            >
+              Services
+            </Typography>
+
+            <Stack spacing={1}>
+              <Typography>SEO</Typography>
+              <Typography>Meta Ads</Typography>
+              <Typography>Google Ads</Typography>
+              <Typography>Branding</Typography>
             </Stack>
           </Grid>
 
-          <Grid item xs={6} md={3}>
-            <Typography variant="subtitle1" sx={{ color: brand.orange, mb: 2 }}>Founder</Typography>
-            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Prince Dangi</Typography>
-            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.5)" }}>Founder & CEO, ONFUGE</Typography>
-          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography
+              sx={{
+                mb: 2,
+                fontWeight: 700,
+              }}
+            >
+              Contact
+            </Typography>
 
-          <Grid item xs={12} md={3}>
-            <Typography variant="subtitle1" sx={{ color: brand.orange, mb: 2 }}>Get in Touch</Typography>
-            <Stack spacing={1.5}>
-              <Stack direction="row" spacing={1.2} alignItems="center">
-                <PhoneIcon sx={{ fontSize: 18, color: brand.orange }} />
-                <Link href={PHONE_HREF} underline="none" sx={{ color: "rgba(255,255,255,0.75)" }}>{PHONE}</Link>
-              </Stack>
-              <Stack direction="row" spacing={1.2} alignItems="center">
-                <EmailIcon sx={{ fontSize: 18, color: brand.orange }} />
-                <Link href={`mailto:${EMAIL}`} underline="none" sx={{ color: "rgba(255,255,255,0.75)" }}>{EMAIL}</Link>
-              </Stack>
-              <Stack direction="row" spacing={1.2} alignItems="flex-start">
-                <PlaceIcon sx={{ fontSize: 18, color: brand.orange, mt: 0.3 }} />
-                <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>Udaipur, Rajasthan, India</Typography>
-              </Stack>
+            <Stack spacing={1}>
+              <Typography>
+                📞 6367167465
+              </Typography>
+
+              <Typography>
+                ✉ onfuge@gmail.com
+              </Typography>
+
+              <Typography>
+                Founder — Prince Dangi
+              </Typography>
             </Stack>
           </Grid>
         </Grid>
 
-        <Divider sx={{ borderColor: "rgba(255,255,255,0.08)", my: 4 }} />
-
-        <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems="center" spacing={1.5}>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.4)" }}>
-            © {new Date().getFullYear()} ONFUGE. All rights reserved.
-          </Typography>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.4)" }}>
-            Founded by Prince Dangi
-          </Typography>
-        </Stack>
-      </Container>
+        <Box
+          sx={{
+            mt: 8,
+            py: 3,
+            borderTop: `1px solid ${brand.line}`,
+            textAlign: "center",
+            color: brand.inkDim,
+          }}
+        >
+          © {new Date().getFullYear()} ONFUGE.
+          All Rights Reserved.
+        </Box>
+      </Box>
     </Box>
   );
-};
-
-export default Footer;
+}

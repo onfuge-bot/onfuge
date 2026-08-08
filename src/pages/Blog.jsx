@@ -1,92 +1,63 @@
-import { Box, Container, Grid, Typography, Card, CardContent, Chip, Stack, Button } from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import VideoBackground from "../components/VideoBackground";
-import useReveal from "../hooks/useReveal";
-import { brand } from "../theme/theme";
+import { Box, Grid, Card, CardMedia, CardContent, Typography, Chip } from '@mui/material';
+import { motion } from 'framer-motion';
+import { brand } from '../theme';
 
 const POSTS = [
-  { tag: "SEO", title: "5 On-Page SEO Fixes That Move Rankings in 30 Days", excerpt: "Small technical changes that consistently outperform generic content advice.", date: "Jul 2, 2026", img: "onfuge-blog1" },
-  { tag: "Paid Ads", title: "Why Your CPC Is Rising (And It's Not the Algorithm)", excerpt: "The three account-structure mistakes we see in almost every audit.", date: "Jun 21, 2026", img: "onfuge-blog2" },
-  { tag: "Branding", title: "Positioning Before Design: A Founder's Checklist", excerpt: "What to nail down before you brief a designer or run your first ad.", date: "Jun 9, 2026", img: "onfuge-blog3" },
-  { tag: "Social Media", title: "Posting More Isn't a Strategy — Here's What Is", excerpt: "A content calendar framework built around funnel stages, not frequency.", date: "May 28, 2026", img: "onfuge-blog4" },
-  { tag: "Email", title: "The 4-Email Sequence That Recovers Abandoned Carts", excerpt: "Timing, subject lines and offers that consistently lift recovery rate.", date: "May 14, 2026", img: "onfuge-blog5" },
-  { tag: "Strategy", title: "How We Structure a Marketing Budget for New Brands", excerpt: "A practical split across channels for brands under their first 12 months.", date: "Apr 30, 2026", img: "onfuge-blog6" },
+  { tag: 'Trends', title: "What's Actually Working in 2026 Marketing", desc: 'A field guide to the channels and formats driving real ROI this year.', img: 'https://picsum.photos/seed/onfuge-blog1/600/360' },
+  { tag: 'SEO', title: '5 SEO Habits Every Local Business Needs', desc: 'Simple, repeatable practices that compound organic visibility over time.', img: 'https://picsum.photos/seed/onfuge-blog2/600/360' },
+  { tag: 'Social', title: 'Growing an Audience Without Paid Spend', desc: 'Content systems that build real community, one post at a time.', img: 'https://picsum.photos/seed/onfuge-blog3/600/360' },
+  { tag: 'AI Marketing', title: 'How AI Tools Are Changing Campaign Speed', desc: 'Where AI genuinely saves time in strategy, creative, and reporting.', img: 'https://picsum.photos/seed/onfuge-blog4/600/360' },
+  { tag: 'Ads', title: 'Meta vs Google Ads: Which Channel First?', desc: 'A practical framework for deciding where to spend your first rupee.', img: 'https://picsum.photos/seed/onfuge-blog5/600/360' },
+  { tag: 'Branding', title: 'Why Local Businesses Need a Real Brand System', desc: 'The difference between a logo and an identity that drives trust.', img: 'https://picsum.photos/seed/onfuge-blog6/600/360' },
 ];
 
-const BLOG_VIDEO = "/videos/blog-agency.mp4";
-const BLOG_POSTER = "https://picsum.photos/seed/onfuge-blog-hero/1920/900";
-
-const PostCard = ({ post, index }) => {
-  const [ref, visible] = useReveal();
-  return (
-    <Grid item xs={12} sm={6} md={4} ref={ref}>
-      <Card
-        elevation={0}
-        sx={{
-          height: "100%", bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
-          display: "flex", flexDirection: "column", overflow: "hidden",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(28px)",
-          transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s, box-shadow 0.35s ease, border-color 0.35s ease`,
-          "&:hover": { borderColor: "rgba(222,103,29,0.5)", boxShadow: "0 0 32px rgba(222,103,29,0.15)" },
-          "&:hover img": { transform: "scale(1.05)" },
-        }}
-      >
-        <Box sx={{ position: "relative", height: 180, overflow: "hidden" }}>
-          <Box
-            component="img"
-            src={`https://picsum.photos/seed/${post.img}/600/400`}
-            alt={post.title}
-            sx={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
-          />
-          <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.7) 100%)" }} />
-          <Box sx={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, bgcolor: brand.orange }} />
-        </Box>
-        <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
-          <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
-            <Chip label={post.tag} size="small" sx={{ bgcolor: "rgba(222,103,29,0.15)", color: brand.orange, fontWeight: 600, border: `1px solid ${brand.orange}` }} />
-            <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.45)" }}>{post.date}</Typography>
-          </Stack>
-          <Typography variant="h6" sx={{ mb: 1.5, flexGrow: 1, color: brand.white }}>{post.title}</Typography>
-          <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)", mb: 2.5 }}>{post.excerpt}</Typography>
-          <Button size="small" color="secondary" endIcon={<ArrowForwardIcon />} sx={{ alignSelf: "flex-start", px: 0 }}>
-            Read More
-          </Button>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
-};
-
-const Blog = () => {
+export default function Blog() {
   return (
     <>
-      <Header />
-
-      <VideoBackground videoSrc={BLOG_VIDEO} posterImage={BLOG_POSTER} fallbackImage={BLOG_POSTER} minHeight="55vh">
-        <Container maxWidth="lg" sx={{ pt: { xs: 10, md: 12 } }}>
-          <Typography variant="overline" sx={{ color: brand.orange }}>THE ONFUGE BLOG</Typography>
-          <Typography variant="h1" sx={{ fontSize: { xs: "2.2rem", md: "3.2rem" }, mt: 1, maxWidth: 760 }}>
-            Notes from campaigns we've actually run
+      <Box sx={{ pt: { xs: 16, md: 20 }, pb: { xs: 6, md: 8 } }}>
+        <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 } }}>
+          <Chip label="DIGITAL MARKETING INSIGHTS" size="small" sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }} />
+          <Typography variant="h1" sx={{ fontSize: { xs: 30, md: 48 }, maxWidth: 720, mb: 2 }}>
+            Field notes from orbit.
           </Typography>
-        </Container>
-      </VideoBackground>
-
-      <Box sx={{ py: { xs: 9, md: 12 }, bgcolor: brand.black }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={3}>
-            {POSTS.map((post, i) => (
-              <PostCard post={post} index={i} key={post.title} />
-            ))}
-          </Grid>
-        </Container>
+          <Typography sx={{ color: brand.ink, fontSize: 16, maxWidth: 560 }}>
+            Practical marketing thinking for startups, hotels, restaurants, e-commerce, real estate, and healthcare
+            brands.
+          </Typography>
+        </Box>
       </Box>
 
-      <Footer />
+      <Box component="section" sx={{ pb: { xs: 8, md: 12 } }}>
+        <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 } }}>
+          <Grid container spacing={3}>
+            {POSTS.map((p, i) => (
+              <Grid item xs={12} sm={6} md={4} key={p.title}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ delay: (i % 3) * 0.08, duration: 0.5 }}
+                  whileHover={{ y: -6 }}
+                >
+                  <Card
+                    className="cursor-hover"
+                    sx={{ bgcolor: 'transparent', border: `1px solid ${brand.line}`, borderRadius: 3, overflow: 'hidden', cursor: 'none' }}
+                  >
+                    <CardMedia component="img" height="160" image={p.img} alt={p.title} loading="lazy" />
+                    <CardContent>
+                      <Typography sx={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: brand.orangeLight, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                        {p.tag}
+                      </Typography>
+                      <Typography variant="h3" sx={{ fontSize: 16.5, my: 1 }}>{p.title}</Typography>
+                      <Typography sx={{ color: brand.ink, fontSize: 13.5, lineHeight: 1.6 }}>{p.desc}</Typography>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
     </>
   );
-};
-
-export default Blog;
+}

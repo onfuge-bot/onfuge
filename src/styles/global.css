@@ -1,0 +1,29 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#050816;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top left,
+  rgba(222,103,29,.15),
+  transparent 30%),
+
+  radial-gradient(circle at bottom right,
+  rgba(18,44,95,.35),
+  transparent 40%);
+
+  pointer-events:none;
+}

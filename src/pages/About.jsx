@@ -1,139 +1,94 @@
-import { Box, Container, Grid, Typography, Stack, Avatar, Button, Divider } from "@mui/material";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import FilmGrain from "../components/FilmGrain";
-import VideoBackground from "../components/VideoBackground";
-import useReveal from "../hooks/useReveal";
-import { brand } from "../theme/theme";
+import { Box, Grid, Typography, Chip, Avatar } from '@mui/material';
+import { motion } from 'framer-motion';
+import RocketLaunchScene from '../components/RocketLaunchScene';
+import { brand } from '../theme';
 
-const VALUES = [
-  { title: "Precision", desc: "Every campaign starts with a defined target — audience, budget and outcome." },
-  { title: "Transparency", desc: "You see the same dashboards and numbers we do. No black boxes." },
-  { title: "Accountability", desc: "We report against goals we set together, monthly, without excuses." },
+const PROCESS = [
+  { n: '01', t: 'Discovery', d: 'We study your brand, market, and customer to find the real growth levers.' },
+  { n: '02', t: 'Strategy', d: 'A custom growth roadmap built around your goals and budget.' },
+  { n: '03', t: 'Design', d: 'Brand and creative assets that make your business unmistakable.' },
+  { n: '04', t: 'Marketing', d: 'Campaigns go live across Meta, Google, SEO, and content.' },
+  { n: '05', t: 'Optimization', d: 'Continuous testing and refinement based on real performance data.' },
+  { n: '06', t: 'Scale', d: 'Double down on what works and expand into new channels.' },
 ];
 
-const STATS = [
-  { value: "150+", label: "Brands Served" },
-  { value: "6+", label: "Years in Digital" },
-  { value: "38", label: "Cities Reached" },
-];
-
-// Placeholder photography — swap for a real photo of Prince / the office.
-const FOUNDER_PHOTO = "https://picsum.photos/seed/onfuge-founder/500/500";
-const ABOUT_VIDEO = "/videos/about-agency.mp4";
-const ABOUT_POSTER = "https://picsum.photos/seed/onfuge-about/1920/900";
-
-const reveal = (visible, delay = 0) => ({
-  opacity: visible ? 1 : 0,
-  transform: visible ? "translateY(0)" : "translateY(28px)",
-  transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
-});
-
-const About = () => {
-  const [founderRef, founderVisible] = useReveal();
-  const [valuesRef, valuesVisible] = useReveal();
-
+export default function About() {
   return (
     <>
-      <Header />
+      <Box sx={{ pt: { xs: 16, md: 20 }, pb: { xs: 8, md: 12 } }}>
+        <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 } }}>
+          <Grid container spacing={5} alignItems="center">
+            <Grid item xs={12} md={7}>
+              <Chip label="ABOUT ONFUGE" size="small" sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }} />
+              <Typography variant="h1" sx={{ fontSize: { xs: 30, md: 46 }, mb: 3 }}>
+                We exist to help ambitious brands scale faster than the market expects.
+              </Typography>
+              <Typography sx={{ color: brand.ink, fontSize: 16.5, lineHeight: 1.7 }}>
+                ONFUGE is a digital growth agency built for startups, hotels, restaurants, e-commerce brands, real
+                estate companies, healthcare businesses, and local businesses ready for a real growth system.
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <RocketLaunchScene height={360} loop rocketWidth={64} />
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
 
-      <VideoBackground videoSrc={ABOUT_VIDEO} posterImage={ABOUT_POSTER} fallbackImage={ABOUT_POSTER} minHeight="60vh">
-        <Container maxWidth="lg" sx={{ pt: { xs: 10, md: 12 } }}>
-          <Typography variant="overline" sx={{ color: brand.orange }}>ABOUT ONFUGE</Typography>
-          <Typography variant="h1" sx={{ fontSize: { xs: "2.2rem", md: "3.2rem" }, mt: 1, maxWidth: 760 }}>
-            Built on one idea: marketing should be aimed, not scattered.
-          </Typography>
-        </Container>
-      </VideoBackground>
-
-      {/* Founder spotlight — with real photo instead of initials */}
-      <Box ref={founderRef} sx={{ py: { xs: 9, md: 12 }, bgcolor: brand.black, ...reveal(founderVisible) }}>
-        <Container maxWidth="lg">
+      {/* Founder */}
+      <Box component="section" sx={{ py: { xs: 6, md: 10 } }}>
+        <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 } }}>
           <Grid container spacing={6} alignItems="center">
             <Grid item xs={12} md={4}>
-              <Stack alignItems={{ xs: "center", md: "flex-start" }} spacing={2}>
-                <Avatar
-                  src={FOUNDER_PHOTO}
-                  alt="Prince Dangi, Founder & CEO of ONFUGE"
-                  sx={{ width: 160, height: 160, border: `2px solid ${brand.orange}`, boxShadow: "0 0 40px rgba(222,103,29,0.25)" }}
-                />
-                <Box textAlign={{ xs: "center", md: "left" }}>
-                  <Typography variant="h5" sx={{ color: brand.white }}>Prince Dangi</Typography>
-                  <Typography variant="body2" sx={{ color: brand.orange, fontWeight: 600 }}>Founder & CEO, ONFUGE</Typography>
-                </Box>
-                <Stack spacing={1}>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <PhoneIcon sx={{ fontSize: 18, color: brand.orange }} />
-                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>+91 6367167465</Typography>
-                  </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <EmailIcon sx={{ fontSize: 18, color: brand.orange }} />
-                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.75)" }}>dangiprince36@gmail.com</Typography>
-                  </Stack>
-                </Stack>
-                <Button href="mailto:onfuge@gmail.com" variant="contained" color="secondary" startIcon={<EmailIcon />}>
-                  Contact Prince
-                </Button>
-              </Stack>
+              <Box
+                component="img"
+                src="https://picsum.photos/seed/onfuge-founder/600/600"
+                alt="Prince Dangi, Founder of ONFUGE"
+                sx={{ width: '100%', borderRadius: 4, border: `1px solid ${brand.line}` }}
+              />
             </Grid>
-
             <Grid item xs={12} md={8}>
-              <Typography variant="h3" sx={{ fontSize: { xs: "1.6rem", md: "2rem" }, mb: 3, color: brand.white, textTransform: "none" }}>
-                From one client to a full-service agency
+              <Chip label="FOUNDER" size="small" sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }} />
+              <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 38 }, mb: 2 }}>Prince Dangi</Typography>
+              <Typography sx={{ color: brand.ink, fontSize: 15.5, lineHeight: 1.75 }}>
+                Prince founded ONFUGE with one belief: marketing should feel like engineering, not guesswork. Every
+                campaign ONFUGE runs is built on measurable strategy, honest reporting, and a relentless focus on
+                outcomes that actually move a business forward.
               </Typography>
-              <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.65)", mb: 2, lineHeight: 1.9 }}>
-                Prince Dangi founded ONFUGE with a simple frustration: too many agencies sold
-                activity — posts, impressions, "engagement" — instead of outcomes. ONFUGE was
-                built to flip that, starting with a single retail client and a spreadsheet of
-                honest numbers.
-              </Typography>
-              <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.65)", mb: 4, lineHeight: 1.9 }}>
-                Today, under Prince's leadership, ONFUGE runs SEO, paid media, content and
-                automation for brands across India — still measuring everything against the same
-                question: did this move the number that matters?
-              </Typography>
-              <Grid container spacing={4}>
-                {STATS.map((s) => (
-                  <Grid item xs={4} key={s.label}>
-                    <Typography variant="h3" sx={{ color: brand.orange }}>{s.value}</Typography>
-                    <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.55)" }}>{s.label}</Typography>
-                  </Grid>
-                ))}
-              </Grid>
             </Grid>
           </Grid>
-        </Container>
+        </Box>
       </Box>
 
-      <Divider sx={{ borderColor: "rgba(255,255,255,0.08)" }} />
+      {/* Process */}
+      <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: brand.dark2 }}>
+        <Box sx={{ maxWidth: 900, mx: 'auto', px: { xs: 3, md: 4 } }}>
+          <Chip label="THE ONFUGE PROCESS" size="small" sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }} />
+          <Typography variant="h2" sx={{ fontSize: { xs: 26, md: 40 }, mb: 6 }}>Six stages. One trajectory.</Typography>
 
-      {/* Values */}
-      <Box ref={valuesRef} sx={{ py: { xs: 9, md: 12 }, bgcolor: "rgba(18,44,95,0.12)", ...reveal(valuesVisible) }}>
-        <Container maxWidth="lg">
-          <Stack spacing={1.5} sx={{ mb: 6, maxWidth: 600 }}>
-            <Typography variant="overline" sx={{ color: brand.orange }}>OUR VALUES</Typography>
-            <Typography variant="h2" sx={{ fontSize: { xs: "1.9rem", md: "2.3rem" }, color: brand.white, textTransform: "none" }}>
-              The principles behind every campaign
-            </Typography>
-          </Stack>
-          <Grid container spacing={3}>
-            {VALUES.map((v) => (
-              <Grid item xs={12} sm={4} key={v.title}>
-                <Box sx={{ bgcolor: "rgba(255,255,255,0.03)", p: 4, borderRadius: 2, height: "100%", border: "1px solid rgba(255,255,255,0.08)", borderTop: `2px solid ${brand.orange}` }}>
-                  <Typography variant="h6" sx={{ color: brand.white, mb: 1 }}>{v.title}</Typography>
-                  <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.6)" }}>{v.desc}</Typography>
+          <Box sx={{ position: 'relative' }}>
+            <Box sx={{ position: 'absolute', left: 29, top: 0, bottom: 0, width: 2, bgcolor: brand.line }} />
+            {PROCESS.map((s, i) => (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 0.5 }}
+                style={{ display: 'flex', gap: 28, padding: '28px 0' }}
+              >
+                <Avatar sx={{ width: 60, height: 60, bgcolor: brand.dark, border: `2px solid ${brand.orange}`, color: brand.orange, fontFamily: "'JetBrains Mono', monospace", fontSize: 14, boxShadow: `0 0 24px rgba(222,103,29,0.35)` }}>
+                  {s.n}
+                </Avatar>
+                <Box>
+                  <Typography variant="h3" sx={{ fontSize: 19, mb: 1 }}>{s.t}</Typography>
+                  <Typography sx={{ color: brand.ink, fontSize: 14.5, maxWidth: 520 }}>{s.d}</Typography>
                 </Box>
-              </Grid>
+              </motion.div>
             ))}
-          </Grid>
-        </Container>
+          </Box>
+        </Box>
       </Box>
-
-      <Footer />
     </>
   );
-};
-
-export default About;
+}
