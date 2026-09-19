@@ -46,7 +46,7 @@ export default function Header() {
           />
         </Box>
 
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3, mr: 3 }}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3, mr: 2, alignItems: 'center' }}>
           {LINKS.map((l) => (
             <Button
               key={l.to}
@@ -63,6 +63,16 @@ export default function Header() {
               {l.label}
             </Button>
           ))}
+
+          <Button
+            component={RouterLink}
+            to="/contact"
+            variant="contained"
+            color="primary"
+            sx={{ ml: 1, whiteSpace: 'nowrap', fontWeight: 700 }}
+          >
+            Contact Us
+          </Button>
         </Box>
 
         <IconButton
@@ -81,6 +91,9 @@ export default function Header() {
                 <ListItemText primary={l.label} sx={{ color: '#fff' }} />
               </ListItemButton>
             ))}
+            <ListItemButton component={RouterLink} to="/contact" onClick={() => setOpen(false)} sx={{ mt: 1 }}>
+              <ListItemText primary="Contact Us" sx={{ color: '#fff', fontWeight: 700 }} />
+            </ListItemButton>
           </List>
         </Box>
       </Drawer>
