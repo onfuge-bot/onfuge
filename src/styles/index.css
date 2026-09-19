@@ -1,0 +1,40 @@
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #050816;
+  scroll-behavior: smooth;
+}
+
+/* Custom rocket cursor hides the default pointer everywhere except inputs */
+body, a, button {
+  cursor: none;
+}
+input, textarea, select {
+  cursor: auto;
+}
+
+@media (max-width: 900px) {
+  body, a, button { cursor: auto; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.7; transform: scaleY(0.85); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}

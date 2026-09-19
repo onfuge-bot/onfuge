@@ -1,0 +1,106 @@
+import { useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Cursor from './components/Cursor';
+import Loader from './components/Loader';
+import Home from './pages/Home';
+import About from './pages/About';
+import ServicesPage from './pages/ServicesPage';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+
+/**
+ * PageTransition
+ * Thin wrapper giving every route a consistent fade/slide-in transition
+ * when navigating via React Router.
+ */
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -16 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/**
+ * App
+ * Top-level shell: renders the mission-control Loader once on first load,
+ * then the persistent Header/Footer/Cursor chrome around the routed pages.
+ * `launched` flips true when the Loader's countdown completes and is handed
+ * to the Home page so the Hero's 3D rocket can ignite in sync.
+ */
+export default function App() {
+  const [launched, setLaunched] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  return (
+    <>
+      {loading && (
+        <Loader
+          onComplete={() => {
+            setLaunched(true);
+            setLoading(false);
+          }}
+        />
+      )}
+
+      <Cursor />
+      <Header />
+
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageTransition>
+                <Home launched={launched} />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageTransition>
+                <About />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <PageTransition>
+                <ServicesPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <PageTransition>
+                <Blog />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageTransition>
+                <Contact />
+              </PageTransition>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
+
+      <Footer />
+    </>
+  );
+}
