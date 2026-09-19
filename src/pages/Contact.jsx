@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, Float, Html } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import RocketAndroid from '@mui/icons-material/RocketLaunchRounded';
-import CalendarMonthRounded from '@mui/icons-material/CalendarMonthRounded';
+import EventRounded from '@mui/icons-material/EventRounded';
 import RocketScene from './RocketScene';
 import EarthScene from './EarthScene';
 import Particles from './Particles';
@@ -213,7 +213,7 @@ export default function Hero({ launched }) {
               href="#contact"
               data-cursor-hover
               variant="outlined"
-              startIcon={<CalendarMonthRounded />}
+              startIcon={<EventRounded />}
               sx={{
                 borderColor: 'rgba(255,255,255,0.3)',
                 color: '#fff',

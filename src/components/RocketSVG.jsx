@@ -1,7 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import RocketSVG from './RocketSVG';
-import FlameEffect from './FlameEffect';
+import RocketSVG from './Footer';
 import { brand } from '../theme/theme';
 
 /**
@@ -119,7 +118,6 @@ export default function RocketLaunchScene({ height = 520, loop = true, rocketWid
       >
         <div style={{ position: 'relative' }}>
           <RocketSVG width={rocketWidth} />
-          <FlameEffect active={phase === 'ignite' || phase === 'liftoff'} intensity={phase === 'ignite' ? 'ignite' : 'full'} />
         </div>
       </motion.div>
     </div>

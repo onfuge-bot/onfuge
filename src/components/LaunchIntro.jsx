@@ -42,7 +42,7 @@ export default function Header() {
             component="img"
             src="/images/logo.png"
             alt="ONFUGE"
-            sx={{ height: 34, width: 'auto', display: 'block' }}
+            sx={{ width: 150, height: 150, objectFit: 'contain', display: 'block' }}
           />
         </Box>
 
@@ -65,16 +65,6 @@ export default function Header() {
           ))}
         </Box>
 
-        <Button
-          component={RouterLink}
-          to="/#contact"
-          variant="contained"
-          color="primary"
-          sx={{ display: { xs: 'none', md: 'inline-flex' } }}
-        >
-          Start Your Launch
-        </Button>
-
         <IconButton
           onClick={() => setOpen(true)}
           sx={{ display: { xs: 'inline-flex', md: 'none' }, color: '#fff' }}
@@ -92,18 +82,6 @@ export default function Header() {
               </ListItemButton>
             ))}
           </List>
-          <Box sx={{ px: 2, mt: 2 }}>
-            <Button
-              component={RouterLink}
-              to="/#contact"
-              variant="contained"
-              color="primary"
-              fullWidth
-              onClick={() => setOpen(false)}
-            >
-              Start Your Launch
-            </Button>
-          </Box>
         </Box>
       </Drawer>
     </AppBar>

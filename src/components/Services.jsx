@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import RocketLaunchScene from './RocketLaunchScene';
 import { brand } from '../theme/theme';
 
 export default function Hero() {
@@ -53,7 +52,7 @@ export default function Hero() {
 
       <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 }, position: 'relative', zIndex: 2, width: '100%' }}>
         <Grid container spacing={{ xs: 5, md: 4 }} alignItems="center">
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={9}>
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Chip
                 label="DIGITAL GROWTH AGENCY"
@@ -118,11 +117,6 @@ export default function Hero() {
             </motion.div>
           </Grid>
 
-          <Grid item xs={12} md={5}>
-            <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              <RocketLaunchScene height={460} loop rocketWidth={80} />
-            </motion.div>
-          </Grid>
         </Grid>
       </Box>
     </Box>

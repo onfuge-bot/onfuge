@@ -1,8 +1,8 @@
 
 import { Box, Grid, Typography, Chip, Card, List, ListItem, ListItemIcon, ListItemText, Button } from '@mui/material';
-import CheckIcon from '@mui/icons-material/Check';
+import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
 import { Link as RouterLink } from 'react-router-dom';
-import Services from '../components/Services';
+import Services from '../components/RocketCursor';
 import { brand } from '../theme/theme';
 
 const PLANS = [
@@ -65,7 +65,7 @@ export default function ServicesPage() {
                   <List dense sx={{ mb: 2 }}>
                     {p.features.map((f) => (
                       <ListItem key={f} disableGutters sx={{ borderTop: `1px solid ${brand.line}`, py: 1 }}>
-                        <ListItemIcon sx={{ minWidth: 28 }}><CheckIcon sx={{ fontSize: 18, color: brand.orange }} /></ListItemIcon>
+                        <ListItemIcon sx={{ minWidth: 28 }}><VerifiedRoundedIcon sx={{ fontSize: 18, color: brand.orange }} /></ListItemIcon>
                         <ListItemText primary={f} primaryTypographyProps={{ fontSize: 14, color: brand.ink }} />
                       </ListItem>
                     ))}

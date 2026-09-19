@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, Grid, TextField, MenuItem, Button, Typography, Chip, Stack, Paper } from '@mui/material';
 import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
+import MailIcon from '@mui/icons-material/Mail';
 import PersonIcon from '@mui/icons-material/Person';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { brand } from '../theme/theme';
@@ -84,7 +84,7 @@ export default function ContactSection() {
                 color="primary"
                 endIcon={<RocketLaunchIcon sx={{ transform: 'rotate(45deg)' }} />}
               >
-                {submitted ? 'Launch Confirmed ✓' : 'Start Your Launch'}
+                {submitted ? 'Message Sent ✓' : 'Contact Us'}
               </Button>
             </Grid>
           </Grid>
@@ -95,7 +95,7 @@ export default function ContactSection() {
             <PhoneIcon fontSize="small" sx={{ color: brand.orange }} /> <span>6367167465</span>
           </Stack>
           <Stack direction="row" spacing={1} alignItems="center" component="a" href="mailto:onfuge@gmail.com" sx={{ color: 'inherit', textDecoration: 'none' }}>
-            <EmailIcon fontSize="small" sx={{ color: brand.orange }} /> <span>onfuge@gmail.com</span>
+            <MailIcon fontSize="small" sx={{ color: brand.orange }} /> <span>onfuge@gmail.com</span>
           </Stack>
           <Stack direction="row" spacing={1} alignItems="center">
             <PersonIcon fontSize="small" sx={{ color: brand.orange }} /> <span>Founder — Prince Dangi</span>
