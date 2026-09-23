@@ -92,13 +92,13 @@ export default function Footer() {
               Contact
             </Typography>
             <Stack spacing={1.4}>
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack component="a" href="tel:6367167465" direction="row" spacing={1} alignItems="center" sx={{ color: brand.ink, textDecoration: 'none' }}>
                 <PhoneIcon sx={{ fontSize: 16, color: brand.orange }} />
-                <a href="tel:6367167465" style={{ color: brand.ink, fontSize: 14, textDecoration: 'none' }}>6367167465</a>
+                <span style={{ fontSize: 14 }}>6367167465</span>
               </Stack>
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack component="a" href="mailto:onfuge@gmail.com" direction="row" spacing={1} alignItems="center" sx={{ color: brand.ink, textDecoration: 'none' }}>
                 <MailIcon sx={{ fontSize: 16, color: brand.orange }} />
-                <a href="mailto:onfuge@gmail.com" style={{ color: brand.ink, fontSize: 14, textDecoration: 'none' }}>onfuge@gmail.com</a>
+                <span style={{ fontSize: 14 }}>onfuge@gmail.com</span>
               </Stack>
               <Typography sx={{ color: brand.ink, fontSize: 14 }}>Founder: Prince Dangi</Typography>
             </Stack>
