@@ -7,18 +7,6 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* Custom rocket cursor hides the default pointer everywhere except inputs */
-body, a, button {
-  cursor: none;
-}
-input, textarea, select {
-  cursor: auto;
-}
-
-@media (max-width: 900px) {
-  body, a, button { cursor: auto; }
-}
-
 @keyframes floatY {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }

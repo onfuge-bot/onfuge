@@ -48,6 +48,11 @@ export default function WhyChooseUs() {
           <Typography sx={{ fontFamily: '"Space Grotesk"', fontWeight: 700, fontSize: { xs: '2rem', md: '2.8rem' }, mt: 1 }}>
             Why Choose ONFUGE
           </Typography>
+          <Typography sx={{ color: 'rgba(255,255,255,0.7)', maxWidth: 700, mx: 'auto', mt: 2, lineHeight: 1.7 }}>
+            We are a digital marketing agency for businesses that want clearer strategy, stronger creative, and
+            growth they can measure. Our team connects brand, advertising, content, and technology into one focused
+            plan.
+          </Typography>
         </Box>
 
         <Grid container spacing={4} sx={{ mb: 10 }}>

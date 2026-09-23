@@ -15,7 +15,8 @@ export default function Footer() {
           <Grid item xs={12} md={4}>
             <Box component="img" src="/images/logo.png" alt="ONFUGE" sx={{ width: 150, height: 150, objectFit: 'contain', mb: 2, display: 'block' }} />
             <Typography sx={{ color: brand.ink, fontSize: 14, maxWidth: 280, lineHeight: 1.6 }}>
-              Scaling Your Online Success. A digital growth agency for brands ready to leave orbit.
+              ONFUGE is a digital marketing agency helping ambitious businesses build visibility, attract customers,
+              and grow with focused strategy and measurable campaigns.
             </Typography>
             <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
               <IconButton

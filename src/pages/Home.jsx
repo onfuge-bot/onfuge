@@ -20,6 +20,10 @@ export default function ServicesPage() {
           <Typography variant="h1" sx={{ fontSize: { xs: 32, md: 52 }, maxWidth: 780 }}>
             Every service you need to scale, working as one system.
           </Typography>
+          <Typography sx={{ color: brand.ink, fontSize: 16.5, maxWidth: 680, mt: 2, lineHeight: 1.7 }}>
+            Whether you are launching a new brand or improving an established business, we build a practical growth
+            plan around your goals, audience, budget, and next opportunity.
+          </Typography>
         </Box>
       </Box>
 

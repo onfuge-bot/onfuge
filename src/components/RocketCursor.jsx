@@ -1,5 +1,6 @@
 import { Box, Grid, Card, CardMedia, CardContent, Typography, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
 import { brand } from '../theme/theme';
 
 // Replace these with your own photography/screenshots — picsum.photos is used as a
@@ -28,10 +29,11 @@ export default function Services({ limit }) {
             sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }}
           />
           <Typography variant="h2" sx={{ fontSize: { xs: 30, md: 44 }, mb: 2 }}>
-            A full growth system, built around your brand.
+            Digital marketing services built to grow your business.
           </Typography>
           <Typography sx={{ color: brand.ink, fontSize: 16.5 }}>
-            Every channel your business needs to scale — working together, not in silos.
+            From brand strategy and content to paid media, SEO, and website development, we connect every channel
+            into one measurable growth system.
           </Typography>
         </Box>
 
@@ -46,11 +48,17 @@ export default function Services({ limit }) {
               >
                 <Card
                   className="cursor-hover"
+                  component={RouterLink}
+                  to={`/services#service-${s.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  id={`service-${s.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  aria-label={`Learn more about ${s.name}`}
                   sx={{
                     bgcolor: 'rgba(18,44,95,0.18)',
                     border: `1px solid ${brand.line}`,
                     borderRadius: 3,
                     overflow: 'hidden',
+                    color: 'inherit',
+                    textDecoration: 'none',
                     transition: 'transform 0.3s, border-color 0.3s',
                     '&:hover': { transform: 'translateY(-6px)', borderColor: 'rgba(222,103,29,0.5)' },
                   }}

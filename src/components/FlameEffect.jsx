@@ -39,6 +39,10 @@ export default function ContactSection() {
         <Typography variant="h2" sx={{ fontSize: { xs: 28, md: 42 }, mb: 5 }}>
           Start your launch sequence.
         </Typography>
+        <Typography sx={{ color: brand.ink, maxWidth: 650, mx: 'auto', mb: 5, lineHeight: 1.7 }}>
+          Tell us where your business is today and where you want it to go. We will recommend the right mix of
+          strategy, advertising, content, SEO, and web support for your next stage of growth.
+        </Typography>
 
         <Paper
           component="form"

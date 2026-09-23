@@ -86,8 +86,8 @@ export default function Hero() {
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
               <Typography variant="body1" sx={{ color: brand.ink, fontSize: 17, maxWidth: 520, mb: 5, lineHeight: 1.7 }}>
-                We build digital growth systems that help businesses scale faster, attract more customers, and dominate
-                their market.
+                ONFUGE is a digital marketing agency helping ambitious businesses attract customers and grow online
+                through strategy, creative campaigns, paid advertising, SEO, and high-converting websites.
               </Typography>
             </motion.div>
 

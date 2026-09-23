@@ -19,6 +19,10 @@ export default function Blog() {
         <Typography variant="h1" sx={{ fontSize: { xs: 36, md: 56 }, maxWidth: 760, mb: 7 }}>
           Ideas for your next launch.
         </Typography>
+        <Typography sx={{ color: brand.ink, maxWidth: 700, fontSize: 17, lineHeight: 1.7, mb: 6 }}>
+          Practical perspectives on digital marketing, paid growth, content, SEO, and websites that turn attention
+          into business. Explore the ideas we use to help brands move with confidence.
+        </Typography>
         <Grid container spacing={3}>
           {POSTS.map((post) => (
             <Grid item xs={12} md={4} key={post.title}>
@@ -27,6 +31,10 @@ export default function Blog() {
                   {post.category}
                 </Typography>
                 <Typography variant="h3" sx={{ fontSize: 24, mb: 3 }}>{post.title}</Typography>
+                <Typography sx={{ color: brand.ink, fontSize: 14, lineHeight: 1.6, mb: 4 }}>
+                  A practical guide to making sharper marketing decisions, improving campaign performance, and
+                  building a stronger customer journey.
+                </Typography>
                 <Typography sx={{ color: brand.inkDim, fontSize: 13 }}>{post.date}</Typography>
               </Box>
             </Grid>

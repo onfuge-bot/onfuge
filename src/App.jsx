@@ -5,7 +5,6 @@ import './styles/index.css';
 
 import Header from './components/LaunchIntro';
 import Footer from './components/Header';
-import RocketCursor from './components/ContactSection';
 
 import Home from './pages/HomePage';
 import About from './pages/About';
@@ -17,7 +16,6 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <RocketCursor />
       <Header />
       <main>
         <Routes>
