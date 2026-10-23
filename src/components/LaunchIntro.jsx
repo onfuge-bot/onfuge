@@ -26,8 +26,8 @@ export default function Header() {
       position="fixed"
       elevation={0}
       sx={{
-        background: scrolled ? 'rgba(5,8,22,0.85)' : 'rgba(5,8,22,0.3)',
-        backdropFilter: 'blur(14px)',
+        background: 'rgba(5,8,22,0.97)',
+        backdropFilter: 'blur(10px)',
         borderBottom: `1px solid ${brand.line}`,
         transition: 'background 0.3s ease',
       }}
@@ -42,7 +42,7 @@ export default function Header() {
             component="img"
             src="/images/logo.png"
             alt="ONFUGE"
-            sx={{ width: 150, height: 150, objectFit: 'contain', display: 'block' }}
+            sx={{ width: 112, height: 64, objectFit: 'contain', display: 'block' }}
           />
         </Box>
 

@@ -101,7 +101,9 @@ export default function Footer() {
                 <MailIcon sx={{ fontSize: 16, color: brand.orange }} />
                 <span style={{ fontSize: 14 }}>onfuge@gmail.com</span>
               </Stack>
-              <Typography sx={{ color: brand.ink, fontSize: 14 }}>Founder: Prince Dangi</Typography>
+              <RouterLink to="/about#founder" style={{ color: brand.ink, fontSize: 14, textDecoration: 'none' }}>
+                Founder: Prince Dangi
+              </RouterLink>
             </Stack>
           </Grid>
         </Grid>

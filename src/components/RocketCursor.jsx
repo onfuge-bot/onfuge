@@ -3,17 +3,14 @@ import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { brand } from '../theme/theme';
 
-// Replace these with your own photography/screenshots — picsum.photos is used as a
-// realistic-looking placeholder so the layout ships with imagery instead of empty boxes.
 export const SERVICES = [
-  { name: 'Social Media Marketing', desc: 'Content systems that build audience and engagement daily.', img: 'https://picsum.photos/seed/onfuge-social/600/440' },
-  { name: 'Performance Marketing', desc: 'Full-funnel campaigns engineered for measurable ROI.', img: 'https://picsum.photos/seed/onfuge-perf/600/440' },
-  { name: 'Meta Ads', desc: 'High-converting Facebook & Instagram ad funnels.', img: 'https://picsum.photos/seed/onfuge-meta/600/440' },
-  { name: 'Google Ads', desc: 'Search & performance campaigns that capture demand.', img: 'https://picsum.photos/seed/onfuge-google/600/440' },
-  { name: 'Branding', desc: 'Identity systems that make your brand instantly recognizable.', img: 'https://picsum.photos/seed/onfuge-brand/600/440' },
-  { name: 'Content Creation', desc: 'Scroll-stopping creative, produced consistently.', img: 'https://picsum.photos/seed/onfuge-content/600/440' },
-  { name: 'Website Development', desc: 'Fast, conversion-first websites built to scale.', img: 'https://picsum.photos/seed/onfuge-web/600/440' },
-  { name: 'SEO', desc: 'Organic growth engines built for long-term compounding.', img: 'https://picsum.photos/seed/onfuge-seo/600/440' },
+  { name: 'Paid Marketing & Performance Advertising', desc: 'Our paid marketing services combine performance marketing and PPC advertising across Google and Meta. Run paid advertising for lead generation, qualified conversions, and advertising efficiency.', img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=85' },
+  { name: 'Search Engine Optimization (SEO)', desc: 'Our SEO services improve search visibility through keyword research, on-page SEO, technical SEO, and content optimization designed to attract relevant organic traffic.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85' },
+  { name: 'Social Media Marketing', desc: 'Build your brand presence across social platforms with strategic content planning, audience engagement, and consistent brand communication.', img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=85' },
+  { name: 'Google Ads Management', desc: 'Our Google Ads services for business growth connect with people actively searching for your products or services through targeted search, display, and other suitable campaigns.', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85' },
+  { name: 'Meta Ads Management', desc: 'Promote your business through Facebook and Instagram campaigns designed to increase brand awareness, generate leads, and support sales.', img: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=85' },
+  { name: 'Content Marketing', desc: 'Create useful, relevant, and engaging content that communicates your brand’s value, answers customer questions, and supports your digital marketing goals.', img: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85' },
+  { name: 'Website Design & Development', desc: 'Build a professional online presence with user-friendly website experiences that communicate your brand clearly and guide visitors toward taking action.', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85' },
 ];
 
 export default function Services({ limit }) {
@@ -29,17 +26,19 @@ export default function Services({ limit }) {
             sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }}
           />
           <Typography variant="h2" sx={{ fontSize: { xs: 30, md: 44 }, mb: 2 }}>
-            Digital marketing services built to grow your business.
+            Smart Strategies. Meaningful Results.
           </Typography>
           <Typography sx={{ color: brand.ink, fontSize: 16.5 }}>
-            From brand strategy and content to paid media, SEO, and website development, we connect every channel
-            into one measurable growth system.
+            ONFUGE is a digital marketing agency delivering digital marketing solutions for businesses. We bring paid
+            media, SEO, social media, and content together to improve visibility, reach relevant audiences, and build
+            stronger customer relationships. From SEO and PPC marketing services to social campaigns, we tailor the
+            right mix to your goals.
           </Typography>
         </Box>
 
         <Grid container spacing={3}>
           {list.map((s, i) => (
-            <Grid item xs={12} sm={6} md={3} key={s.name}>
+            <Grid item xs={12} sm={6} md={4} key={s.name}>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}

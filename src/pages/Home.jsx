@@ -29,6 +29,38 @@ export default function ServicesPage() {
 
       <Services />
 
+      <Box component="section" sx={{ py: { xs: 7, md: 10 } }}>
+        <Box
+          sx={{
+            maxWidth: 1240,
+            mx: 'auto',
+            px: { xs: 3, md: 4 },
+          }}
+        >
+          <Box
+            sx={{
+              p: { xs: 3, md: 6 },
+              border: `1px solid ${brand.line}`,
+              borderRadius: 2,
+              bgcolor: 'rgba(255,255,255,0.02)',
+              textAlign: 'center',
+            }}
+          >
+            <Chip label="LET'S GROW" size="small" sx={{ bgcolor: 'rgba(222,103,29,0.12)', color: brand.orangeLight, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, mb: 2 }} />
+            <Typography variant="h2" sx={{ fontSize: { xs: 28, md: 42 }, mb: 2 }}>
+              Let's Build Your Growth Strategy
+            </Typography>
+            <Typography sx={{ color: brand.ink, fontSize: 16.5, maxWidth: 720, mx: 'auto', lineHeight: 1.7, mb: 4 }}>
+              Whether you're launching a new business or expanding an established brand, ONFUGE can help you identify
+              the right digital marketing opportunities.
+            </Typography>
+            <Button component={RouterLink} to="/contact" variant="contained" color="primary" size="large">
+              Discuss Your Project
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+
       {/* Pricing */}
       <Box component="section" id="pricing" sx={{ py: { xs: 8, md: 12 }, bgcolor: brand.dark2 }}>
         <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 4 }, textAlign: 'center' }}>

@@ -78,16 +78,24 @@ export default function Hero() {
                   mb: 3,
                 }}
               >
-                We don't market brands.
+                Transform Your Digital Presence.
                 <br />
-                We <Box component="span" sx={{ color: brand.orange }}>launch</Box> them.
+                <Box component="span" sx={{ color: brand.orange }}>Accelerate Your Growth.</Box>
               </Typography>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
               <Typography variant="body1" sx={{ color: brand.ink, fontSize: 17, maxWidth: 520, mb: 5, lineHeight: 1.7 }}>
-                ONFUGE is a digital marketing agency helping ambitious businesses attract customers and grow online
-                through strategy, creative campaigns, paid advertising, SEO, and high-converting websites.
+                At ONFUGE, we help businesses build a powerful online presence through strategic digital marketing,
+                performance advertising, and creative digital solutions. Our goal is to connect your brand with the
+                right audience, generate quality leads, and turn digital opportunities into business growth.
+                <br /><br />
+                From paid advertising and search engine optimization to social media marketing and brand development,
+                we create customized strategies that align with your business goals.
+                <br /><br />
+                <Box component="span" sx={{ color: brand.ink, fontWeight: 700 }}>
+                  Your vision. Our strategy. Your growth.
+                </Box>
               </Typography>
             </motion.div>
 
@@ -101,7 +109,7 @@ export default function Hero() {
                   size="large"
                   endIcon={<RocketLaunchIcon sx={{ transform: 'rotate(45deg)' }} />}
                 >
-                  Launch My Brand
+                  Let's Grow Your Business
                 </Button>
                 <Button
                   component={RouterLink}
@@ -111,7 +119,7 @@ export default function Hero() {
                   size="large"
                   startIcon={<PlayArrowIcon />}
                 >
-                  View Our Work
+                  Explore Our Services
                 </Button>
               </Stack>
             </motion.div>
