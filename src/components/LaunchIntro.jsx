@@ -40,7 +40,7 @@ export default function Header() {
         >
           <Box
             component="img"
-            src="/images/logo.png"
+            src={`${import.meta.env.BASE_URL}images/logo.png`}
             alt="ONFUGE"
             sx={{ width: 112, height: 64, objectFit: 'contain', display: 'block' }}
           />

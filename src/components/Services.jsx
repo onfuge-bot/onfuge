@@ -25,7 +25,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        poster="/images/hero-poster.jpg"
+        poster={`${import.meta.env.BASE_URL}images/hero-poster.jpg`}
         sx={{
           position: 'absolute',
           inset: 0,
@@ -35,7 +35,7 @@ export default function Hero() {
           opacity: 0.28,
         }}
       >
-        <source src="/videos/hero-loop.mp4" type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}videos/hero-loop.mp4`} type="video/mp4" />
       </Box>
 
       {/* dark + brand gradient overlay so text stays readable over the video */}

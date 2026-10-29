@@ -55,7 +55,7 @@ export default function RocketSVG({ width = 90 }) {
       <circle cx="50" cy="70" r="15" fill="#0A1128" />
       <g clipPath="url(#windowClip)">
         {/* Replace /images/logo.png with your logo file — it will appear inside the window */}
-        <image href="/images/logo.png" x="35" y="55" width="30" height="30" preserveAspectRatio="xMidYMid slice" />
+        <image href={`${import.meta.env.BASE_URL}images/logo.png`} x="35" y="55" width="30" height="30" preserveAspectRatio="xMidYMid slice" />
       </g>
       <circle cx="50" cy="70" r="15" fill="none" stroke={brand.orangeLight} strokeWidth="1.5" opacity="0.6" />
 
