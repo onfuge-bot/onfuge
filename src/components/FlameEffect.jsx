@@ -3,8 +3,12 @@ import { Box, Grid, TextField, MenuItem, Button, Typography, Chip, Stack, Paper 
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
 import PersonIcon from '@mui/icons-material/Person';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { brand } from '../theme/theme';
+
+const LOCATION = 'Sukher, Udaipur, Rajasthan';
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCATION)}`;
 
 const BUDGETS = ['Under ₹25,000', '₹25,000 – ₹75,000', '₹75,000 – ₹2,00,000', '₹2,00,000+'];
 
@@ -100,6 +104,9 @@ export default function ContactSection() {
           </Stack>
           <Stack direction="row" spacing={1} alignItems="center" component="a" href="mailto:onfuge@gmail.com" sx={{ color: 'inherit', textDecoration: 'none' }}>
             <MailIcon fontSize="small" sx={{ color: brand.orange }} /> <span>onfuge@gmail.com</span>
+          </Stack>
+          <Stack direction="row" spacing={1} alignItems="center" component="a" href={MAPS_URL} target="_blank" rel="noreferrer" sx={{ color: 'inherit', textDecoration: 'none' }}>
+            <LocationOnIcon fontSize="small" sx={{ color: brand.orange }} /> <span>{LOCATION}</span>
           </Stack>
           <Stack direction="row" spacing={1} alignItems="center">
             <PersonIcon fontSize="small" sx={{ color: brand.orange }} /> <span>Founder — Prince Dangi</span>
