@@ -2,10 +2,14 @@ import { Box, Grid, Typography, Stack, IconButton } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { brand } from '../theme/theme';
+
+const LOCATION = 'Sukher, Udaipur, Rajasthan';
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCATION)}`;
 
 export default function Footer() {
   return (
@@ -100,6 +104,10 @@ export default function Footer() {
               <Stack component="a" href="mailto:onfuge@gmail.com" direction="row" spacing={1} alignItems="center" sx={{ color: brand.ink, textDecoration: 'none' }}>
                 <MailIcon sx={{ fontSize: 16, color: brand.orange }} />
                 <span style={{ fontSize: 14 }}>onfuge@gmail.com</span>
+              </Stack>
+              <Stack component="a" href={MAPS_URL} target="_blank" rel="noreferrer" direction="row" spacing={1} alignItems="center" sx={{ color: brand.ink, textDecoration: 'none' }}>
+                <LocationOnIcon sx={{ fontSize: 16, color: brand.orange }} />
+                <span style={{ fontSize: 14 }}>{LOCATION}</span>
               </Stack>
               <RouterLink to="/about#founder" style={{ color: brand.ink, fontSize: 14, textDecoration: 'none' }}>
                 Founder: Prince Dangi
