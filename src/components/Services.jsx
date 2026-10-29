@@ -18,27 +18,7 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Background video — drop a royalty-free marketing/tech loop at public/videos/hero-loop.mp4 */}
-      <Box
-        component="video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={`${import.meta.env.BASE_URL}images/hero-poster.jpg`}
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          opacity: 0.28,
-        }}
-      >
-        <source src={`${import.meta.env.BASE_URL}videos/hero-loop.mp4`} type="video/mp4" />
-      </Box>
-
-      {/* dark + brand gradient overlay so text stays readable over the video */}
+      {/* dark + brand gradient background keeps the hero readable without optional media */}
       <Box
         sx={{
           position: 'absolute',
